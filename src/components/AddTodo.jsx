@@ -2,17 +2,17 @@ import styles from "./AddTodo.module.css";
 import { useState, useRef } from "react";
 import WarningPopUp from "./WarningPopUp.jsx";
 import { useContext } from "react";
-import {TodoContext} from "../store/Items_Provider.jsx"
+import { TodoContext } from "../store/Items_Provider.jsx";
 
 let AddTodo = () => {
   // let [taskInput, SettaskInput] = useState("");
   // let [dateInput, SetdateInput] = useState("");
   let [showError, SetshowError] = useState(false);
-  const {onBtnClickHandlerContext} = useContext(TodoContext);
+  const { onBtnClickHandlerContext } = useContext(TodoContext);
 
   const taskInput = useRef();
   const dateInput = useRef();
-  
+
   const onBtnClickHandler = () => {
     const task = taskInput.current.value;
     const date = dateInput.current.value;
@@ -33,7 +33,7 @@ let AddTodo = () => {
   return (
     <>
       {showError && <WarningPopUp />}
-      <div className="col-lg-6">
+      <div className="col-lg-6" key={dateInput}>
         <input
           placeholder="Add todo's...."
           type="text"
@@ -42,15 +42,14 @@ let AddTodo = () => {
           className={`${styles.input}`}
         />
       </div>
-      <div className="col-lg-3">
+      <div className="col-lg-3" key="56">
         <input
           type="date"
-          // value={dateInput}
           className={`${styles.input} ${styles.dateSelector}`}
           ref={dateInput}
         />
       </div>
-      <div className="col-lg-3">
+      <div className="col-lg-3" key="96">
         <button
           className={`${styles.button}`}
           type="button"
