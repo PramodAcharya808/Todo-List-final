@@ -1,10 +1,14 @@
 import styles from "./AddTodo.module.css";
 import { useState, useRef } from "react";
 import WarningPopUp from "./WarningPopUp.jsx";
-let AddTodo = ({ onBtnClick }) => {
+import { useContext } from "react";
+import {TodoContext} from "../store/Items_Provider.jsx"
+
+let AddTodo = () => {
   // let [taskInput, SettaskInput] = useState("");
   // let [dateInput, SetdateInput] = useState("");
   let [showError, SetshowError] = useState(false);
+  const {onBtnClickHandlerContext} = useContext(TodoContext);
 
   const taskInput = useRef();
   const dateInput = useRef();
@@ -22,7 +26,7 @@ let AddTodo = ({ onBtnClick }) => {
     } else {
       taskInput.current.value = "";
       dateInput.current.value = "";
-      onBtnClick(task, date);
+      onBtnClickHandlerContext(task, date);
     }
   };
 
@@ -36,8 +40,6 @@ let AddTodo = ({ onBtnClick }) => {
           name="text"
           ref={taskInput}
           className={`${styles.input}`}
-          // value={taskInput}
-          // onChange={(e) => SettaskInput(e.target.value)}
         />
       </div>
       <div className="col-lg-3">
@@ -46,7 +48,6 @@ let AddTodo = ({ onBtnClick }) => {
           // value={dateInput}
           className={`${styles.input} ${styles.dateSelector}`}
           ref={dateInput}
-          // onChange={(e) => SetdateInput(e.target.value)}
         />
       </div>
       <div className="col-lg-3">

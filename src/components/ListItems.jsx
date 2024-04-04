@@ -1,9 +1,13 @@
 import styles from "./ListItems.module.css";
+import { TodoContext } from "../store/Items_Provider";
+import { useContext } from "react";
+let ListItems = () => {
+  const { todoListData } = useContext(TodoContext);
+  const { deteleBtnHandler } = useContext(TodoContext);
 
-let ListItems = ({ todoList, delBtnOnClick }) => {
   return (
     <>
-      {todoList.map((items) => (
+      {todoListData.map((items) => (
         <>
           <div key="52" className="col-6 my-2">
             <div className={`${styles.input}`}>
@@ -18,7 +22,7 @@ let ListItems = ({ todoList, delBtnOnClick }) => {
           <div key="12" className="col-3 my-2">
             <button
               className={`${styles.delBtn}`}
-              onClick={() => delBtnOnClick(items.task)}
+              onClick={() => deteleBtnHandler(items.task)}
             >
               Delete
             </button>
