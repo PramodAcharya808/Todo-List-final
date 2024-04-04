@@ -9,12 +9,12 @@ let ListItems = () => {
     <>
       {todoListData.map((items) => (
         <>
-          <div key="52" className="col-6 my-2">
+          <div key={items.task} className="col-6 my-2">
             <div className={`${styles.input}`}>
               <p>{items.task}</p>
             </div>
           </div>
-          <div key="32" className="col-3 my-2">
+          <div key={items.date} className="col-3 my-2">
             <div className={`${styles.input}`}>
               <p>{items.date}</p>
             </div>
