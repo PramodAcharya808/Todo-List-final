@@ -1,0 +1,62 @@
+.input {
+  width: 80%;
+  height: 45px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+  background-color: white;
+}
+
+.input:hover {
+  border: 2px solid rgba(140, 140, 140, 0.696);
+  box-shadow: 0px 0px 20px -17px;
+}
+
+
+.input:focus {
+  border: 2px solid grey;
+}
+
+.delBtn {
+  position: relative;
+  background-color: rgb(230, 34, 77);
+  border-radius: 5px;
+  box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+  padding: 15px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 154px;
+  height: 49px;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.delBtn::before {
+  content: "";
+  background-color: rgb(248, 50, 93);
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 700ms ease-in-out;
+  display: inline-block;
+}
+
+.delBtn:hover::before {
+  width: 100%;
+}
+
+.delBtn:active {
+  transform: scale(0.9);
+}
