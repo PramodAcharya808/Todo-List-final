@@ -45,7 +45,7 @@ const TodoContextProvider = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{todoListData, onBtnClickHandlerContext, deteleBtnHandler}}
+      value={{ todoListData, onBtnClickHandlerContext, deteleBtnHandler }}
     >
       {children}
     </TodoContext.Provider>
